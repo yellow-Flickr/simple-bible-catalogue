@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://simple-bible-catalogue/schema/version.schema.json",
+  "title": "Bible version data",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version_name", "language", "version"],
+  "properties": {
+    "id": {
+      "oneOf": [
+        { "type": "integer" },
+        { "type": "string", "minLength": 1 }
+      ]
+    },
+    "version_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "name", "dialect"],
+      "properties": {
+        "code": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "dialect": { "type": "string" }
+      }
+    },
+    "version": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/verse"
+      }
+    }
+  },
+  "$defs": {
+    "verse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "chapter",
+        "verse",
+        "text",
+        "translation_id",
+        "book_id",
+        "book_name",
+        "testament"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "chapter": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "verse": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string"
+        },
+        "translation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "book_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "book_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "testament": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

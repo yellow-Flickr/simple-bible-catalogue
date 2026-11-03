@@ -1,19 +1,45 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-02T00:00:00Z",
+  "updatedAt": "2026-11-03T00:00:00Z",
   "versions": [
     {
-      "id": 300,
-      "translationId": "ASV",
-      "name": "American Standard Version",
-      "abbreviation": "ASV",
+      "id": "eng-amp",
+      "translationId": "AMP",
+      "name": "Amplified Bible",
+      "abbreviation": "AMP",
       "language": { "code": "en", "name": "English" },
       "revision": 1,
-      "url": "versions/asv/asv.v1.json",
-      "sizeBytes": 10412345,
+      "url": "versions/en-amp.v1.json",
+      "sizeBytes": 10815026,
       "bookCount": 66,
       "verseCount": 31102,
-      "license": "Public Domain",
+      "minSchemaVersion": 1
+    },
+    {
+      "id": "eng-ampc",
+      "translationId": "AMPC",
+      "name": "Amplified Bible Classic Edition",
+      "abbreviation": "AMPC",
+      "language": { "code": "en", "name": "English" },
+      "revision": 1,
+      "url": "versions/en-ampc.v1.json",
+      "sizeBytes": 11154712,
+      "bookCount": 66,
+      "verseCount": 31102,
+      "minSchemaVersion": 1
+    },
+    {
+      "id": 200,
+      "translationId": "AKNA",
+      "translationIds": ["AKNA", "AkuapemTwi"],
+      "name": "Akuapem Twi Nkwa Asɛm",
+      "abbreviation": "AKNA",
+      "language": { "code": "tw", "name": "Twi" },
+      "revision": 1,
+      "url": "versions/twi-akuapem/twi-akuapem.vi.json",
+      "sizeBytes": 10220252,
+      "bookCount": 66,
+      "verseCount": 31100,
       "minSchemaVersion": 1
     }
   ]

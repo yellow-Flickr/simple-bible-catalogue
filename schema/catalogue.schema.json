@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://simple-bible-catalogue/schema/catalogue.schema.json",
+  "title": "Bible catalogue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "updatedAt", "versions"],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "versions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/catalogueVersion"
+      }
+    }
+  },
+  "$defs": {
+    "catalogueVersion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "translationId",
+        "name",
+        "abbreviation",
+        "language",
+        "revision",
+        "url",
+        "sizeBytes",
+        "bookCount",
+        "verseCount",
+        "minSchemaVersion"
+      ],
+      "properties": {
+        "id": {
+          "oneOf": [
+            { "type": "integer" },
+            { "type": "string", "minLength": 1 }
+          ]
+        },
+        "translationId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "translationIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "abbreviation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "name"],
+          "properties": {
+            "code": { "type": "string", "minLength": 1 },
+            "name": { "type": "string", "minLength": 1 }
+          }
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri-reference",
+          "pattern": "\\.json$"
+        },
+        "sizeBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bookCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "verseCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minSchemaVersion": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}
