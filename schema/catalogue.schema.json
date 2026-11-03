@@ -40,20 +40,13 @@
       ],
       "properties": {
         "id": {
-          "oneOf": [
-            { "type": "integer" },
-            { "type": "string", "minLength": 1 }
-          ]
+          "description": "Same format as the version file's id, which must match it: ISO 639-3 language code, a hyphen, then the publisher's abbreviation in lowercase, e.g. eng-kjv. Assigned once; never renamed or reused.",
+          "type": "string",
+          "pattern": "^[a-z]{3}-[a-z0-9]+(-[a-z0-9]+)*$"
         },
         "translationId": {
           "type": "string",
           "minLength": 1
-        },
-        "translationIds": {
-          "type": "array",
-          "items": { "type": "string", "minLength": 1 },
-          "minItems": 1,
-          "uniqueItems": true
         },
         "name": {
           "type": "string",

@@ -14,10 +14,10 @@ https://raw.githubusercontent.com/yellow-Flickr/simple-bible-catalogue/main/cata
 ```
 
 Version `url` values are paths relative to the repository root. For example,
-`versions/en-amp.v1.json` is available at:
+`versions/eng-amp.v1.json` is available at:
 
 ```text
-https://raw.githubusercontent.com/yellow-Flickr/simple-bible-catalogue/main/versions/en-amp.v1.json
+https://raw.githubusercontent.com/yellow-Flickr/simple-bible-catalogue/main/versions/eng-amp.v1.json
 ```
 
 The catalogue and version file formats are documented by the
