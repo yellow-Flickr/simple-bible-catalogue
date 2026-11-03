@@ -1,2 +1,5 @@
 /.DS_Store
 /.github
+./tools/simple_bible_parser/.github
+./tools/simple_bible_parser/.claude
+./tools/simple_bible_parser/.pubspec.lock
