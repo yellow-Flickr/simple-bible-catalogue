@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-02T00:00:00Z",
+  "versions": [
+    {
+      "id": 300,
+      "translationId": "ASV",
+      "name": "American Standard Version",
+      "abbreviation": "ASV",
+      "language": { "code": "en", "name": "English" },
+      "revision": 1,
+      "url": "versions/asv/asv.v1.json",
+      "sizeBytes": 10412345,
+      "bookCount": 66,
+      "verseCount": 31102,
+      "license": "Public Domain",
+      "minSchemaVersion": 1
+    }
+  ]
+}
