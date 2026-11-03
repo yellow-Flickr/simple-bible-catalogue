@@ -7,10 +7,7 @@
   "required": ["id", "version_name", "language", "version"],
   "properties": {
     "id": {
-      "oneOf": [
-        { "type": "integer" },
-        { "type": "string", "minLength": 1 }
-      ]
+      "$ref": "#/$defs/versionId"
     },
     "version_name": {
       "type": "string",
@@ -34,6 +31,11 @@
     }
   },
   "$defs": {
+    "versionId": {
+      "description": "ISO 639-3 language code, a hyphen, then the publisher's abbreviation in lowercase, e.g. eng-kjv. Assigned once; never renamed or reused.",
+      "type": "string",
+      "pattern": "^[a-z]{3}-[a-z0-9]+(-[a-z0-9]+)*$"
+    },
     "verse": {
       "type": "object",
       "additionalProperties": false,

@@ -18,21 +18,28 @@ the catalogue and downloadable files consistent.
 
 ## Version data and catalogue entries
 
-1. Store the version JSON under `versions/`, using a stable descriptive path.
-   The file must match [`schema/version.schema.json`](schema/version.schema.json).
+1. Store the version JSON as `versions/<id>.v<revision>.json`. The file must
+   match [`schema/version.schema.json`](schema/version.schema.json).
 2. Add one entry to [`catalogue.json`](catalogue.json) that describes the file.
    The entry must match [`schema/catalogue.schema.json`](schema/catalogue.schema.json).
-3. Use a unique `id` and an accurate display name, abbreviation, and language.
-   `translationId` identifies the main translation label; use `translationIds`
-   when one data file contains multiple translation IDs.
-4. Set `url` to a repository-root-relative path ending in `.json`. Ensure the
+3. Give the version an `id` made of its ISO 639-3 language code, a hyphen, and
+   the publisher's abbreviation in lowercase: `eng-kjv`, `twi-akna`. Leave out
+   the dialect, which belongs in `language.dialect`. A different edition or
+   translation gets a new id (`eng-kjv1611`); corrections to the same text keep
+   the id and bump `revision`. An id is never renamed or reused, even after the
+   version is removed: the app stores it with users' bookmarks and history.
+   The app reads the language from `language`, never from the id.
+4. Use an accurate display name, abbreviation, and language. `translationId`
+   is the short label shown in the app and must equal every verse's
+   `translation_id`.
+5. Set `url` to a repository-root-relative path ending in `.json`. Ensure the
    path resolves from the repository's raw GitHub base URL.
-5. Set `sizeBytes` to the exact size of the committed file, `bookCount` to the
+6. Set `sizeBytes` to the exact size of the committed file, `bookCount` to the
    number of distinct book IDs, and `verseCount` to the number of verse records.
    Ensure the version file's top-level `id` matches the catalogue entry.
-6. Use a new version path/revision for changed data instead of silently
+7. Use a new version path/revision for changed data instead of silently
    replacing a file clients may already have downloaded.
-7. Update `updatedAt` when the catalogue changes.
+8. Update `updatedAt` when the catalogue changes.
 
 The `tools/simple_bible_parser/` directory contains a Dart parser and its
 instructions. From that directory, run:
